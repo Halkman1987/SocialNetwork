@@ -74,7 +74,7 @@ namespace SocialNetwork.BLL.Services
         public User FindByEmail(string email)
         {
             var findUserEntity = userRepository.FindByEmail(email);
-            if (findUserEntity is null) throw new UserNotFoundException;
+            if (findUserEntity is null) throw new UserNotFoundException();
 
             return ConstructUserModel(findUserEntity); 
         }

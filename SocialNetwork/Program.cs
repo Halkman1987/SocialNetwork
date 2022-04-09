@@ -3,6 +3,8 @@ using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
 using SocialNetwork.DAL.Entities;
 using SocialNetwork.DAL.Repositories;
+using SocialNetwork.PLL.Views;
+using SocialNetwork.PLL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,11 +16,42 @@ namespace SocialNetwork
 {
     class Program
     {
-        public static UserService userService = new UserService();
+        public static MessageService messageService;
+        public static UserService userService ;
+        
+        public static AuthenticationView authenticationView;
+        public static MainView mainView;
+        public static MessageSendingView messageSending;
+        public static RegistrationView registrationView;
+        public static UserDataUpdateView userDataUpdateView;
+        public static UserIncomingMessageView userIncomingMessageView;
+        public static UserInfoView userInfoView;
+        public static UserMenuView userMenuView;
+        public static UserOutcomingMessageView userOutcomingMessageView;
+
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("Добро пожаловать в социальную сеть.");
+            userService = new UserService();
+            messageService = new MessageService();
+            mainView = new MainView();
+            authenticationView = new AuthenticationView(userService);
+            registrationView = new RegistrationView(userService);
 
+
+
+
+
+            while (true)
+            {
+                mainView.Show();
+            }
+            
+
+
+            
             while (true)
             {
                 Console.WriteLine("Войти в профиль (нажмите 1)");
