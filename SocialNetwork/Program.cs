@@ -1,10 +1,9 @@
 ﻿using SocialNetwork.BLL.Exceptions;
 using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
-using SocialNetwork.DAL.Entities;
-using SocialNetwork.DAL.Repositories;
+
 using SocialNetwork.PLL.Views;
-using SocialNetwork.PLL.Helpers;
+using SocialNetwork.PLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,30 +15,37 @@ namespace SocialNetwork
 {
     class Program
     {
-        public static MessageService messageService;
-        public static UserService userService ;
+        static MessageService messageService;
+        static UserService userService ;
         
         public static AuthenticationView authenticationView;
         public static MainView mainView;
-        public static MessageSendingView messageSending;
+        public static MessageSendingView messageSendingView;
         public static RegistrationView registrationView;
         public static UserDataUpdateView userDataUpdateView;
         public static UserIncomingMessageView userIncomingMessageView;
         public static UserInfoView userInfoView;
         public static UserMenuView userMenuView;
         public static UserOutcomingMessageView userOutcomingMessageView;
-
+        public static UserFriendsView userFriendsView;
 
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Добро пожаловать в социальную сеть.");
+           
             userService = new UserService();
             messageService = new MessageService();
+            
             mainView = new MainView();
             authenticationView = new AuthenticationView(userService);
             registrationView = new RegistrationView(userService);
-
+            userMenuView = new UserMenuView(userService);
+            userInfoView = new UserInfoView();
+            userDataUpdateView = new UserDataUpdateView(userService);
+            messageSendingView = new MessageSendingView(messageService,userService);
+            userIncomingMessageView = new UserIncomingMessageView();
+            userOutcomingMessageView = new UserOutcomingMessageView();
+            userFriendsView = new UserFriendsView();
 
 
 
@@ -52,7 +58,7 @@ namespace SocialNetwork
 
 
             
-            while (true)
+            /*while (true)
             {
                 Console.WriteLine("Войти в профиль (нажмите 1)");
                 Console.WriteLine("Зарегистрироваться (нажмите 2)");
@@ -188,7 +194,7 @@ namespace SocialNetwork
                         }
                         break;
                 }
-            }
+            }*/
         }
     }
 

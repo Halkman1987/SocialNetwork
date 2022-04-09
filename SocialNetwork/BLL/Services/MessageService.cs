@@ -15,10 +15,10 @@ namespace SocialNetwork.BLL.Services
         IMessageRepository messageRepository;
         IUserRepository userRepository;
 
-        public MessageService(IMessageRepository messageRepository, IUserRepository userRepository)
+        public MessageService()
         {
-            this.messageRepository = messageRepository;
-            this.userRepository = userRepository;
+            messageRepository = new MessageRepository();
+            userRepository = new UserRepository();
         }
         public IEnumerable<Message> GetIncomingMessagesUserId(int recipienId)
         {

@@ -16,6 +16,8 @@ namespace SocialNetwork.BLL.Models
         public string Photo { get; set; }
         public string FavoriteMovie { get; set; }
         public string FavoriteBook { get; set; }
+        public IEnumerable<Message> IncomingMessages { get; }
+        public IEnumerable<Message> OutgoingMessages { get; }
 
         public User(
             int id,

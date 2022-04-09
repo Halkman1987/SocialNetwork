@@ -32,7 +32,7 @@ namespace SocialNetwork.PLL.Views
             {
                 messageService.SendMessage(messageSendingData);
                 SuccessMessage.Show("Сообщение успешно отправленно");
-                user = userService.FindByEmail(user.Id);
+                user = userService.FindByEmail(user.Email);
             }
             catch (UserNotFoundException)
             {

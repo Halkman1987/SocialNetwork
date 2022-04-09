@@ -30,7 +30,9 @@ namespace SocialNetwork.PLL.Views
                 Console.WriteLine("Посмотреть входящие сообщения ( нажмите 5 )");
                 Console.WriteLine("Посмотреть исходящие сообщения ( нажмите 6 )");
                 Console.WriteLine("Выйти из профиля  ( нажмите 7 )");
+                
                 string keyValue = Console.ReadLine();
+                
                 if (keyValue == "7") break;
                 switch (keyValue)
                 {
@@ -51,7 +53,7 @@ namespace SocialNetwork.PLL.Views
                         }
                     case "4":
                         {
-                            Program.messageSending.Show(user);
+                            Program.messageSendingView.Show(user);
                             break;
                         }
                     case "5":
