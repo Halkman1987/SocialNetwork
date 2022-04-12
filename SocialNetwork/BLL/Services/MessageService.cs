@@ -54,6 +54,7 @@ namespace SocialNetwork.BLL.Services
                 throw new ArgumentOutOfRangeException();
             
             var findUserEntity = this.userRepository.FindByEmail(messageSendingData.RecipientEmail);
+           
             if (findUserEntity is null)
                 throw new UserNotFoundException();
             
