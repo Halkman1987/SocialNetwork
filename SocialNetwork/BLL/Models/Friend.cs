@@ -8,7 +8,7 @@ namespace SocialNetwork.BLL.Models
 {
     public class Friend
     {
-        public int FriendId { get; set; }
+        public int UserId { get; set; }
         public string FriendEmail { get; set; }
        
     }

@@ -27,8 +27,9 @@ namespace SocialNetwork.PLL.Views
                 var addFriend = new Friend();
                 Console.WriteLine("Введите Email-адресс пользователя для добавления в друзья :");
                 addFriend.FriendEmail = Console.ReadLine();
-                addFriend.FriendId = user.Id;
+                addFriend.UserId = user.Id;
                 this.friendService.AddFriend(addFriend);
+                SuccessMessage.Show("Друг добавлен");
             }
             catch (UserNotFoundException)
             {
@@ -42,9 +43,10 @@ namespace SocialNetwork.PLL.Views
         public void ViewAllFriends(User user)
         {
            var all = friendService.ViewAllFriend(user);//ВОЗВРАЩАЕМ FriendEntity 
+           
             all.ToList().ForEach(friend =>
             {
-                Console.WriteLine("Почтовый адрес друга: {0}. Имя друга: {1}", friend.user_id, friend.friend_id);
+                Console.WriteLine("Почтовый адрес друга: {0}. Имя друга: {1}", friend.Id, friend.Email);
             });
             Console.WriteLine("-----");
         }

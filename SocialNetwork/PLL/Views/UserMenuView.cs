@@ -21,6 +21,8 @@ namespace SocialNetwork.PLL.Views
         {
             while (true)
             {
+                Console.WriteLine();
+                Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine("Входящие сообщения : {0}", user.IncomingMessages.Count());
                 Console.WriteLine("Исходящие сообщения : {0}", user.OutgoingMessages.Count());
                 Console.WriteLine("Посмотреть информацию о моем профиле ( нажмите 1 )");
@@ -31,7 +33,8 @@ namespace SocialNetwork.PLL.Views
                 Console.WriteLine("Посмотреть входящие сообщения ( нажмите 5 )");
                 Console.WriteLine("Посмотреть исходящие сообщения ( нажмите 6 )");
                 Console.WriteLine("Выйти из профиля  ( нажмите 7 )");
-                
+                Console.WriteLine("--------------------------------------------------------------");
+                Console.WriteLine();
                 string keyValue = Console.ReadLine();
                 
                 if (keyValue == "7") break;
