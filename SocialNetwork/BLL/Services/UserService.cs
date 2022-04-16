@@ -106,6 +106,7 @@ namespace SocialNetwork.BLL.Services
             var incommes = messageService.GetIncomingMessagesUserId(userEntity.id);
             var outcommes = messageService.GetOutcomingMessagesUserId(userEntity.id);
             var friends = UserFriends(userEntity.id);
+            var friendsOff = UserFriendsOff(userEntity.id);
             return new User(userEntity.id,
                 userEntity.firstname,
                 userEntity.lastname,
@@ -116,7 +117,8 @@ namespace SocialNetwork.BLL.Services
                 userEntity.favorite_book,
                 incommes,
                 outcommes,
-                friends
+                friends,
+                friendsOff
                 );
         }
         public IEnumerable<User> UserFriends(int userid)//полученине 
@@ -131,6 +133,19 @@ namespace SocialNetwork.BLL.Services
             if (findUserEntity is null) throw new UserNotFoundException();
 
             return ConstructUserModel(findUserEntity);
+        }
+        public IEnumerable<User> UserFriendsOff(int userid)//полученине 
+        {
+            
+            var friends = friendRepository.FindAllByUserId(userid).Where(fr => fr.friend_id == userid).
+                 Select(fr => FindById(fr.user_id));
+            return friends;
+        }
+
+        public IEnumerable<UserEntity> AllUserFriends()//полученине всех пользователей системы
+        {
+            var friends = userRepository.FindAll();
+            return friends;
         }
     }
    

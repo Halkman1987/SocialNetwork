@@ -29,7 +29,7 @@ namespace SocialNetwork
         public static UserMenuView userMenuView;
         public static UserOutcomingMessageView userOutcomingMessageView;
         public static UserFriendsView userFriendsView;
-
+        public static ViewAllAddUsers viewAllAddUsers;
 
         static void Main(string[] args)
         {
@@ -48,7 +48,7 @@ namespace SocialNetwork
             userIncomingMessageView = new UserIncomingMessageView();
             userOutcomingMessageView = new UserOutcomingMessageView();
             userFriendsView = new UserFriendsView(friendService);
-
+            viewAllAddUsers = new ViewAllAddUsers(userService);
 
 
 

@@ -24,6 +24,7 @@ namespace SocialNetwork.PLL.Views
                 Console.WriteLine();
                 Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine("Друзей добавленно :{0}", user.Friends.Count());
+                Console.WriteLine("Вы в друзьях добавленны :{0}", user.FriendsOff.Count());
                 Console.WriteLine("Входящие сообщения : {0}", user.IncomingMessages.Count());
                 Console.WriteLine("Исходящие сообщения : {0}", user.OutgoingMessages.Count());
                 Console.WriteLine("Посмотреть информацию о моем профиле ( нажмите 1 )");
