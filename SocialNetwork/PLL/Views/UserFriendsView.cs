@@ -19,7 +19,6 @@ namespace SocialNetwork.PLL.Views
             this.friendService = friendService;
         }
 
-       
         public void AddFriend(User user)
         {
             try
@@ -42,13 +41,12 @@ namespace SocialNetwork.PLL.Views
         }
         public void ViewAllFriends(User user)
         {
-           var all = friendService.ViewAllFriend(user);//ВОЗВРАЩАЕМ FriendEntity 
-           
-            all.ToList().ForEach(friend =>
+            var al = user.Friends;
+            foreach(var f in al)
             {
-                Console.WriteLine("Почтовый адрес друга: {0}. Имя друга: {1}", friend.Id, friend.Email);
-            });
-            Console.WriteLine("-----");
+                Console.WriteLine("Почтовый адрес друга: {0}. Имя друга: {1}", f.Email, f.FirstName);
+            }
+           Console.WriteLine("-----------------------------------------");
         }
     }
 }

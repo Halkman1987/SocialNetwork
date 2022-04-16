@@ -21,25 +21,18 @@ namespace SocialNetwork.BLL.Services
         }
         public void AddFriend(Friend friend)
         {
-            var findUserEntity = userRepository.FindByEmail(friend.FriendEmail);
+            var findUserEntity = userRepository.FindByEmail(friend.FriendEmail);//поиск по Майлу с возвратом пользователя-UserEntity 
             if (findUserEntity is null) throw new UserNotFoundException();
             var userFriend = new FriendEntity()
             {
-                user_id = friend.UserId,
-                friend_id = findUserEntity.id
+                user_id = friend.UserId,//кто дружит
+                friend_id = findUserEntity.id //с кем дружит
             };
-            if(this.friendRepository.Create(userFriend) == 0)
+            if(this.friendRepository.Create(userFriend) == 0)//запись в репозиторий и бд сущности связки друг-друг
                 throw new Exception();
         }
+
        
-        public IEnumerable<User> ViewAllFriend(User user)
-        {
-            var allFriend = friendRepository.FindAllByUserId(user.Id)
-                .Select(fr => fr.friend_id);
-
-
-            return allFriend;
-        }
 
     }
 }

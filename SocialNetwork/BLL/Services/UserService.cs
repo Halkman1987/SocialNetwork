@@ -119,10 +119,11 @@ namespace SocialNetwork.BLL.Services
                 friends
                 );
         }
-        public IEnumerable<User> UserFriends(int userid)
+        public IEnumerable<User> UserFriends(int userid)//полученине 
         {
-            return friendRepository.FindAllByUserId(userid).
+           var  friends = friendRepository.FindAllByUserId(userid).
                 Select(fr => FindById(fr.friend_id));
+            return friends;
         }
         public User FindById(int id)
         {

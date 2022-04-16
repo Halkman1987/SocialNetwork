@@ -17,5 +17,6 @@ namespace SocialNetwork.DAL.Entities
         public string favorite_movie { get; set; }
         public string favorite_book { get; set; }
 
+
     }
 }

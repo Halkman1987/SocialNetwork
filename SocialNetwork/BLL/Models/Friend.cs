@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.BLL.Models
 {
-    public class Friend
+    public class Friend //для промежуточной инициализации сущности кто с кем дружить хочет
     {
-        public int UserId { get; set; }
-        public string FriendEmail { get; set; }
+       
+        public int UserId { get; set; }//хозяин
+        public string FriendEmail { get; set; }//друг
        
     }
 }
