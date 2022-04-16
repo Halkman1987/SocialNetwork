@@ -44,7 +44,8 @@ namespace SocialNetwork.PLL.Views
             var al = user.Friends;
             foreach(var f in al)
             {
-                Console.WriteLine("Почтовый адрес друга: {0}. Имя друга: {1}", f.Email, f.FirstName);
+                SuccessMessage.Show($"Почтовый адрес друга: {f.Email}. Имя друга: {f.FirstName}");
+                
             }
            Console.WriteLine("-----------------------------------------");
         }
