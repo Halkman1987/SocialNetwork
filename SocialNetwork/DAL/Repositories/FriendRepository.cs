@@ -13,6 +13,10 @@ namespace SocialNetwork.DAL.Repositories
         {
             return Query<FriendEntity>(@"select * from friends where user_id = :user_id", new { user_id = userId });
         }
+        public IEnumerable<FriendEntity> FindAllByFriendId(int userId)
+        {
+            return Query<FriendEntity>(@"select * from friends where friend_id = :user_id", new { friend_id = userId });
+        }
 
         public int Create(FriendEntity friendEntity)
         {
@@ -29,6 +33,7 @@ namespace SocialNetwork.DAL.Repositories
     {
         int Create(FriendEntity friendEntity);
         IEnumerable<FriendEntity> FindAllByUserId(int userId);
+        IEnumerable<FriendEntity> FindAllByFriendId(int id);
         int Delete(int id);
     }
 }

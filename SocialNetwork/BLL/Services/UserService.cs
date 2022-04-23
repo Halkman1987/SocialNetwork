@@ -137,9 +137,12 @@ namespace SocialNetwork.BLL.Services
         public IEnumerable<User> UserFriendsOff(int userid)//полученине 
         {
             
-            var friends = friendRepository.FindAllByUserId(userid).Where(fr => fr.friend_id == userid).
-                 Select(fr => FindById(fr.user_id));
+            var friends = friendRepository.FindAllByFriendId(userid).
+                Select(fr => FindById(fr.friend_id));
             return friends;
+            /*var friends = friendRepository.FindAllByFriendId(userid).Where(fr => fr.friend_id == userid).
+                 Select(fr => FindById(fr.user_id));
+            return friends;*/
         }
 
         public IEnumerable<UserEntity> AllUserFriends()//полученине всех пользователей системы
